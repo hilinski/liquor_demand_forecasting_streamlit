@@ -6,7 +6,7 @@ import pandas as pd
 from menu import create_menu
 import matplotlib.pyplot as plt
 import time
-from graphs.base import create_weekly_sales_chart
+from graphs.plots import create_weekly_sales_chart
 
 
 
