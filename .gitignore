@@ -1,3 +1,5 @@
 *.csv
 *.Identifier
 *.python-version
+logs.log
+__pycache__
