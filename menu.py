@@ -29,11 +29,11 @@ def create_menu():
 
     # Add page links to each column
     with col1:
-        st.page_link("app.py", label="Home", icon="🏠")
+        st.page_link("pages/filter.py", label="Predicción", icon="🥃")
     with col2:
-        st.page_link("pages/features.py", label="Caracteristicas", icon="🚀")
-    with col3:
-        st.page_link("pages/filter.py", label="Filtros", icon="🥃")
+        st.page_link("pages/features.py", label="Predicción Por Año", icon="🚀")
+    # with col3:
+
         
         
 # # Use the create_menu function in your main app

@@ -80,9 +80,11 @@ def create_weekly_sales_chart(sales_data: pd.DataFrame, start_year: int = 2020) 
                      marker='o', markersize=6, label=f'{category} (Actual)')
         
         # Plot predicted data
-        predicted_data = category_data[category_data['is_pred'] == True]
+        predicted_data = category_data[category_data['is_pred'] == True]        
         sns.lineplot(data=predicted_data, x='date', y='bottles_sold', ax=ax, 
-                     marker='o', markersize=6, label=f'{category} (Predicted)', linestyle='--')
+             marker='o', markersize=6, label=f'{category} (Predicted)', 
+             color='#f1806f', linestyle=':')
+    
     
     # Customize the plot
     plt.title('Weekly Bottles Sold by Category (Actual vs Predicted)', fontsize=16)

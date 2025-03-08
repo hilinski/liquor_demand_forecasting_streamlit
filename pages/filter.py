@@ -27,8 +27,10 @@ if st.button('Fetch Data'):
         response = requests.get(endpoint_get)
         response.raise_for_status()  # Raise an exception for bad status codes
         req_prediction = response.json()
-        data = json.loads(req_prediction)
+        data = json.loads(req_prediction[0])
+        data_mae = json.loads(req_prediction[1])
         df = pd.DataFrame(data)
+        df_mae = pd.DataFrame(data_mae) 
         
         categories = ['RUM', 'VODKA', 'WHISKY', 'TEQUILA_MEZCAL', 'LIQUEURS', 'OTROS', 'GIN']
 
@@ -37,7 +39,12 @@ if st.button('Fetch Data'):
         
         # st.dataframe(df)
         st.pyplot(fig, clear_figure=True)
+        
+        st.title("Prediction per Categorie")
         st.pyplot(fig2, clear_figure=True)
+        
+        st.title("Model Error Validation")
+        st.dataframe(df_mae)
         # st.success('Data fetched successfully!')
         # st.pyplot(fig)
         # st.write("Weekly Sales Data:")
