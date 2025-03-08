@@ -6,7 +6,7 @@ import pandas as pd
 from menu import create_menu
 import matplotlib.pyplot as plt
 import time
-from graphs.plots import create_weekly_sales_chart
+from graphs.plots import create_weekly_sales_chart, multiple_categories_chat
 
 
 
@@ -30,13 +30,18 @@ if st.button('Fetch Data'):
         data = json.loads(req_prediction)
         df = pd.DataFrame(data)
         
-        
+        categories = ['RUM', 'VODKA', 'WHISKY', 'TEQUILA_MEZCAL', 'LIQUEURS', 'OTROS', 'GIN']
+
         fig, weekly_sales = create_weekly_sales_chart(df)
+        fig2, weekly_sales2 = multiple_categories_chat(df, categories) 
         
-        st.success('Data fetched successfully!')
-        st.pyplot(fig)
-        st.write("Weekly Sales Data:")
-        st.dataframe(weekly_sales)
+        # st.dataframe(df)
+        st.pyplot(fig, clear_figure=True)
+        st.pyplot(fig2, clear_figure=True)
+        # st.success('Data fetched successfully!')
+        # st.pyplot(fig)
+        # st.write("Weekly Sales Data:")
+        # st.dataframe(weekly_sales)
         # print(df)
 
        
